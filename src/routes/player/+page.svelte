@@ -43,7 +43,7 @@
 		</div>
 
 		<div class="video">
-			<HLSPlayer {sourceUrl} />
+			<HLSPlayer sourceUrl={$page.url.searchParams.get('u')} />
 		</div>
 	</main>
 </div>
@@ -70,7 +70,7 @@
 
 	.form {
 		display: flex;
-		/* visibility: hidden; */
+		visibility: hidden;
 	}
 
 	.form fieldset:first-child {
