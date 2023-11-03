@@ -1,4 +1,5 @@
 <script>
+	import '@picocss/pico/css/pico.min.css'
 	import * as config from '$lib/config'
 	import PageTransition from './transition.svelte'
 	import { page } from '$app/stores'

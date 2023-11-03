@@ -1,4 +1,5 @@
 <script>
+	import { formatTime } from '$lib/time'
 	import { onMount } from 'svelte'
 	import { error } from '@sveltejs/kit'
 
@@ -87,23 +88,42 @@
 			<thead>
 				<tr>
 					<th scope="col">#</th>
-					<th scope="col">App</th>
-					<th scope="col">Stream</th>
-					<th scope="col">AliveSecond</th>
-					<th scope="col">Heading</th>
-					<th scope="col">Heading</th>
-					<th scope="col">Heading</th>
-					<th scope="col">Heading</th>
+					<th scope="col">url</th>
+					<th scope="col">app</th>
+					<th scope="col">stream</th>
+					<th scope="col">bit rate (kbit/s)</th>
+					<th scope="col">fps</th>
+					<th scope="col">resolution</th>
+					<th scope="col">sample</th>
+					<th scope="col">alive</th>
+					<th scope="col">createdAt</th>
+					<!-- <th scope="col">originUrl</th> -->
 				</tr>
 			</thead>
 			<tbody>
 				{#if tableData && tableData.length > 0}
-					{#each tableData as row, i (row.stream)}
+					{#each tableData as v, i (v.stream)}
 						<tr>
 							<th scope="row">{i + 1}</th>
-							<td>{row.app}</td>
-							<td>{row.stream}</td>
-							<td>{row.aliveSecond}</td>
+							<td><a href="http://{nodeIp}:8280/{v.app}/{v.stream}/hls.m3u8">play</a></td>
+							<!-- <td><a href="http://{nodeIp}:8280/{v.app}/{v.stream}.live.flv">play</a></td> -->
+							<td>{v.app}</td>
+							<td>{v.stream}</td>
+							<td>{Math.floor((v.bytesSpeed * 8) / 1000)}</td>
+							<td>{v.tracks.find((track) => track.codec_id_name.startsWith('H26')).fps}</td>
+							<td
+								>{((result) => `${result.width} x ${result.height} ${result.codec_id_name}`)(
+									v.tracks.find((track) => track.codec_id_name.startsWith('H26'))
+								)}</td
+							>
+							<td
+								>{((result) => `${result.sample_rate} x ${result.sample_bit}`)(
+									v.tracks.find((track) => !track.codec_id_name.startsWith('H26'))
+								)}</td
+							>
+							<td>{Math.floor(v.aliveSecond / 60) + 'm ' + (v.aliveSecond % 60) + 's'}</td>
+							<td>{formatTime(v.createStamp)}</td>
+							<!-- <td>{v.originUrl}</td> -->
 						</tr>
 					{/each}
 				{:else}
