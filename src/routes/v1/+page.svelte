@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="container wrapper">
 	<div class="one item">One</div>
 	<div class="two item">Two</div>
 	<div class="three item">Three</div>

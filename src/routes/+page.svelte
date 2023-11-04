@@ -1,5 +1,4 @@
 <script>
-	import '@picocss/pico/css/pico.min.css'
 	import * as config from '$lib/config'
 	import Calendar from '$lib/components/Calendar.svelte'
 </script>

@@ -1,4 +1,12 @@
-function formatTime (input) {
+function formatTimeOnly (input) {
+  var date = new Date(input * 1000)
+  var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':'
+  var m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':'
+  var s = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds())
+  return h + m + s
+}
+
+function formatDateTime (input) {
   var date = new Date(input * 1000)
   var Y = date.getFullYear() + '-'
   var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-'
@@ -9,8 +17,7 @@ function formatTime (input) {
   return Y + M + D + h + m + s
 }
 
-
-const formatTimeMillis = (input) => {
+const formatDateTimeMillis = (input) => {
   if (!input) return
   const date = new Date(input)
   let hour = date.getHours()
@@ -22,4 +29,6 @@ const formatTimeMillis = (input) => {
   return hour + ':' + minute + ':' + second
 }
 
-export { formatTime, formatTimeMillis }
+export { formatTimeOnly, formatDateTime, formatDateTimeMillis }
+
+
