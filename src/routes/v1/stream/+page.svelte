@@ -15,51 +15,7 @@
 
 	let schema = define.schemas[0]
 	let app = ''
-
-	async function fetchData() {}
-
-	function handleSubmit() {
-		fetchData()
-	}
-
-	function handleChange() {
-		fetchData()
-	}
 </script>
-
-<div class="container">
-	<!-- Form elements-->
-	<!-- <section id="form">
-		<form on:submit|preventDefault={handleSubmit}>
-			<div class="grid">
-				<fieldset>
-					<label for="sel_schema">Schema</label>
-					<select
-						bind:value={schema}
-						on:change={() => handleChange()}
-						id="sel_schema"
-						name="select2"
-						required
-					>
-						{#each define.schemas as v}
-							<option value={v}> {v.text} </option>
-						{/each}
-					</select>
-				</fieldset>
-
-				<fieldset>
-					<label for="text">App</label>
-					<input bind:value={app} type="text" id="text" name="text" placeholder="App" />
-				</fieldset>
-
-				<fieldset>
-					<label for="submit"> &nbsp; </label>
-					<input id="submit" type="submit" value="Submit" />
-				</fieldset>
-			</div>
-		</form>
-	</section> -->
-</div>
 
 <div class="grid-container">
 	{#each nodes as node}

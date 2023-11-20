@@ -1,5 +1,4 @@
 <script>
-	import { formatTimeOnly } from '$lib/time'
 	import { onMount } from 'svelte'
 	import { error } from '@sveltejs/kit'
 
@@ -53,7 +52,6 @@
 					<th scope="col">fps</th>
 					<th scope="col">sample</th>
 					<th scope="col">alive</th>
-					<!-- <th scope="col">createdAt</th> -->
 					<th scope="col">url</th>
 				</tr>
 			</thead>
@@ -81,7 +79,6 @@
 								)}</td
 							>
 							<td>{Math.floor(v.aliveSecond / 60) + 'm ' + (v.aliveSecond % 60) + 's'}</td>
-							<!-- <td>{formatTimeOnly(v.createStamp)}</td> -->
 							<td
 								><span
 									class="copy-link"
@@ -108,6 +105,5 @@
 	.copy-link {
 		cursor: pointer;
 		text-decoration: underline;
-		/* color: var(--primary-hover); */
 	}
 </style>
