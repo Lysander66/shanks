@@ -20,7 +20,7 @@ scp vite.config.js svelte.config.js hk3:/var/www/shanks
 
 > ssh hk3
 
-package.json
+vim /var/www/shanks/package.json
 
 ```json
 {
@@ -39,7 +39,8 @@ package.json
 ```
 
 ```sh
-pnpm install pm2@latest -g
 cd /var/www/shanks
+pnpm i
+pnpm install pm2@latest -g
 pm2 start npm --name "my-app" -- run preview
 ```
