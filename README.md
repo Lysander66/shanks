@@ -32,6 +32,7 @@ vim /var/www/shanks/package.json
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/kit": "^1.20.4",
+		"hls.js": "^1.4.12",
 		"vite": "^4.4.2"
 	},
 	"type": "module"
