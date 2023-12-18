@@ -37,3 +37,9 @@ package.json
 	"type": "module"
 }
 ```
+
+```sh
+pnpm install pm2@latest -g
+cd /var/www/shanks
+pm2 start npm --name "my-app" -- run preview
+```
