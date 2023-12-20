@@ -88,14 +88,16 @@
 			<thead>
 				<tr>
 					<th scope="col">#</th>
-					<th scope="col">city</th>
-					<th scope="col">stream</th>
+					<th scope="col">region</th>
+					<th scope="col">local</th>
+					<th scope="col">alive</th>
+					<th scope="col">remote</th>
+					<th scope="col">publish time</th>
 					<th scope="col">bit rate</th>
 					<th scope="col">resolution</th>
 					<th scope="col">vcodec</th>
 					<th scope="col">fps</th>
 					<th scope="col">sample</th>
-					<th scope="col">alive</th>
 					<th scope="col">createdAt</th>
 					<th scope="col">url</th>
 				</tr>
@@ -107,7 +109,7 @@
 							<th scope="row">{i + 1}</th>
 							<td
 								><a href="http://{v.ip}:8281/api/stat/allGroup?schema=rtmp" target="_blank"
-									>{v.city}</a
+									>{v.region}</a
 								>
 							</td>
 							<td
@@ -116,12 +118,18 @@
 									target="_blank">{v.stream}</a
 								>
 							</td>
+							<td>{Math.floor(v.alive_second / 60) + 'm ' + (v.alive_second % 60) + 's'}</td>
+							<td>
+								<a href="http://localhost:5173/player?u={v.link}" target="_blank"
+									>{v.link ? 'play' : ''}</a
+								>
+							</td>
+							<td>{v.publish_time}</td>
 							<td>{((v.bytes_speed * 8) / 1000 / 1000).toFixed(2)} Mbps</td>
 							<td>{`${v.width} x ${v.height}`}</td>
 							<td>{v.vcodec}</td>
 							<td>{v.fps}</td>
 							<td>{`${v.sample_rate} x ${v.sample_bit}`}</td>
-							<td>{Math.floor(v.alive_second / 60) + 'm ' + (v.alive_second % 60) + 's'}</td>
 							<td>{formatTimeOnly(v.create_stamp)}</td>
 							<td
 								><span
