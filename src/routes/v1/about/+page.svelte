@@ -108,7 +108,7 @@
 						<tr>
 							<th scope="row">{i + 1}</th>
 							<td
-								><a href="http://{v.ip}:8281/api/stat/allGroup?schema=rtmp" target="_blank"
+								><a href="http://{v.ip}:8281/api/v1/stat/allGroup?schema=rtmp" target="_blank"
 									>{v.region}</a
 								>
 							</td>

@@ -10,7 +10,7 @@
 	let tableData = []
 
 	async function fetchData() {
-		let rawURL = `http://${nodeIp}:8281/api/stat/allGroup?schema=${schema}&app=${app}`
+		let rawURL = `http://${nodeIp}:8281/api/v1/stat/allGroup?schema=${schema}&app=${app}`
 		console.log(nodeName, rawURL)
 		const response = await fetch(rawURL)
 		const resp = await response.json()
