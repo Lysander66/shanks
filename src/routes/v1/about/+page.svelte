@@ -92,10 +92,10 @@
 					<th scope="col">local</th>
 					<th scope="col">alive</th>
 					<th scope="col">remote</th>
-					<th scope="col">publish time</th>
-					<th scope="col">bit rate</th>
-					<th scope="col">resolution</th>
 					<th scope="col">vcodec</th>
+					<th scope="col">resolution</th>
+					<th scope="col">bit rate</th>
+					<th scope="col">publish time</th>
 					<th scope="col">fps</th>
 					<th scope="col">sample</th>
 					<th scope="col">createdAt</th>
@@ -124,10 +124,10 @@
 									>{v.link ? 'play' : ''}</a
 								>
 							</td>
-							<td>{v.publish_time}</td>
-							<td>{((v.bytes_speed * 8) / 1000 / 1000).toFixed(2)} Mbps</td>
-							<td>{`${v.width} x ${v.height}`}</td>
 							<td>{v.vcodec}</td>
+							<td>{`${v.width} x ${v.height}`}</td>
+							<td>{((v.bytes_speed * 8) / 1000 / 1000).toFixed(2)} Mbps</td>
+							<td>{v.publish_time}</td>
 							<td>{v.fps}</td>
 							<td>{`${v.sample_rate} x ${v.sample_bit}`}</td>
 							<td>{formatTimeOnly(v.create_stamp)}</td>
