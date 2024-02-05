@@ -3,7 +3,7 @@
 	import { onMount } from 'svelte'
 	import { error } from '@sveltejs/kit'
 
-	let rawURL = ''
+	let rawURL = 'http://8.217.8.158:8084/mez/api/v1/live/mediaList'
 
 	let define = {
 		apps: [
